@@ -18,14 +18,13 @@ class Genius:
     artist_path = Path(Path(ROOT_DIR), 'data', artist.name)
     os.makedirs(artist_path, exist_ok=True)
     for song in artist.songs:
-       song.save_lyrics(filename='lyrics/txt/'+filename+'.json',format_='txt')
-       song.save_lyrics(filename='lyrics/json/'+filename+'.json',format_='json')
-      
-      #with open(Path(artist_path, f'{song.title}.txt'), 'w', errors='ignore') as f:
-      #  f.write(song.lyrics)
+       #song.save_lyrics(filename=artist.songs)
+       #song.save_lyrics(filename=artist.songs)
+       with open(Path(artist_path, f'{song.title}.txt'), 'w', errors='ignore') as f:
+         f.write(song.lyrics)
 
 
-genius = Genius("poop")
+genius = Genius("f2ANcY9V9jGEpVTkdN6DbwQ2i7XylsmRxba61JUkP3rE00o81J1-Fz_o0xgNiqJ3")
 with open(Path(ROOT_DIR, 'data', 'rappers.txt', errors='ignore')) as f:
     for rapper in [line.strip() for line in f.readlines()]:
         genius.scrape_artist(rapper)
